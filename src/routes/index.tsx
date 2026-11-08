@@ -77,10 +77,12 @@ function Index() {
 
 function PortraitFrame() {
   return (
-    <figure className="relative mx-auto w-full max-w-sm md:ml-auto">
-      <div className="absolute inset-0 translate-x-4 translate-y-4 border border-gold-line" aria-hidden />
-      <div className="relative flex aspect-square items-center justify-center border border-primary/50 bg-card">
-        <span className="font-serif text-7xl italic text-primary/40">JM</span>
+    <figure className="mx-auto w-full max-w-sm md:ml-auto">
+      <div className="relative">
+        <div className="absolute inset-0 translate-x-4 translate-y-4 border border-gold-line" aria-hidden />
+        <div className="relative flex aspect-square items-center justify-center border border-primary/50 bg-card">
+          <span className="font-serif text-7xl italic text-primary/40">JM</span>
+        </div>
       </div>
       <figcaption className="mt-8 text-xs tracking-wide text-muted-foreground/70">
         Desde algún lugar con buena conexión.
