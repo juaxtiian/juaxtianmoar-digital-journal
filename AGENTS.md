@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Site copy for notes and projects lives in `src/lib/content.ts`; pages read from it so content edits stay in one place.
+- Header and footer are rendered once in `src/routes/__root.tsx` around `<Outlet />`; pages render only their own content.
+- Reusable visual styles (gold button, gold link, eyebrow labels, editorial prose) are `@utility` classes in `src/styles.css`; components use those instead of ad hoc colors.
