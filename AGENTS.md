@@ -31,6 +31,6 @@ use the editor.
 
 ## Project rules
 
-- Site copy for notes and projects lives in `src/lib/content.ts`; pages read from it so content edits stay in one place.
+- Site copy (content categories and notes) lives in `src/lib/content.ts`; pages read from it so content edits stay in one place. Each category has its own route file rendering the shared `CategoryPage`; articles live at `/notas/$slug`.
 - Header and footer are rendered once in `src/routes/__root.tsx` around `<Outlet />`; pages render only their own content.
 - Reusable visual styles (gold button, gold link, eyebrow labels, editorial prose) are `@utility` classes in `src/styles.css`; components use those instead of ad hoc colors.

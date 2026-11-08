@@ -1,11 +1,13 @@
 import { Link } from "@tanstack/react-router";
-import type { Note } from "@/lib/content";
+import { categories, type Note } from "@/lib/content";
 
 export function NoteCard({ note }: { note: Note }) {
   return (
     <article className="group flex h-full flex-col border border-gold-line bg-card p-8 transition-colors duration-300 hover:border-primary/70">
       <div className="flex items-center justify-between">
-        <span className="eyebrow text-primary">{note.tag}</span>
+        <Link to={categories[note.category].path} className="eyebrow text-primary">
+          {categories[note.category].label}
+        </Link>
         <span className="text-xs text-muted-foreground/70">{note.date}</span>
       </div>
 

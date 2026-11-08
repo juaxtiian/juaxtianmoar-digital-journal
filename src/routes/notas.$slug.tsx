@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { notes } from "@/lib/content";
+import { categories, notes } from "@/lib/content";
 
 export const Route = createFileRoute("/notas/$slug")({
   loader: ({ params }) => {
@@ -32,13 +32,15 @@ function NotePage() {
 
   return (
     <article className="mx-auto max-w-2xl px-6 pt-20 md:pt-28">
-      <Link to="/notas" className="link-gold">
-        ← Todas las notas
+      <Link to={categories[note.category].path} className="link-gold">
+        ← {categories[note.category].label}
       </Link>
 
       <header className="mt-14 border-b border-gold-line pb-12">
         <div className="flex items-center gap-4 text-xs text-muted-foreground/80">
-          <span className="eyebrow text-primary">{note.tag}</span>
+          <Link to={categories[note.category].path} className="eyebrow text-primary">
+            {categories[note.category].label}
+          </Link>
           <span aria-hidden>·</span>
           <span>{note.date}</span>
           <span aria-hidden>·</span>

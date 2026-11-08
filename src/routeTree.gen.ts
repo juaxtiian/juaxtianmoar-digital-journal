@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProyectosRouteImport } from './routes/proyectos'
 import { Route as SobreMiRouteImport } from './routes/sobre-mi'
 import { Route as NotasIndexRouteImport } from './routes/notas.index'
 import { Route as NotasSlugRouteImport } from './routes/notas.$slug'
@@ -18,11 +17,6 @@ import { Route as NotasSlugRouteImport } from './routes/notas.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProyectosRoute = ProyectosRouteImport.update({
-  id: '/proyectos',
-  path: '/proyectos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreMiRoute = SobreMiRouteImport.update({
@@ -43,14 +37,12 @@ const NotasSlugRoute = NotasSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/proyectos': typeof ProyectosRoute
   '/sobre-mi': typeof SobreMiRoute
   '/notas/$slug': typeof NotasSlugRoute
   '/notas/': typeof NotasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/proyectos': typeof ProyectosRoute
   '/sobre-mi': typeof SobreMiRoute
   '/notas/$slug': typeof NotasSlugRoute
   '/notas': typeof NotasIndexRoute
@@ -58,22 +50,20 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/proyectos': typeof ProyectosRoute
   '/sobre-mi': typeof SobreMiRoute
   '/notas/$slug': typeof NotasSlugRoute
   '/notas/': typeof NotasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/proyectos' | '/sobre-mi' | '/notas/$slug' | '/notas/'
+  fullPaths: '/' | '/sobre-mi' | '/notas/$slug' | '/notas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/proyectos' | '/sobre-mi' | '/notas/$slug' | '/notas'
-  id: '__root__' | '/' | '/proyectos' | '/sobre-mi' | '/notas/$slug' | '/notas/'
+  to: '/' | '/sobre-mi' | '/notas/$slug' | '/notas'
+  id: '__root__' | '/' | '/sobre-mi' | '/notas/$slug' | '/notas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProyectosRoute: typeof ProyectosRoute
   SobreMiRoute: typeof SobreMiRoute
   NotasSlugRoute: typeof NotasSlugRoute
   NotasIndexRoute: typeof NotasIndexRoute
@@ -86,13 +76,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/proyectos': {
-      id: '/proyectos'
-      path: '/proyectos'
-      fullPath: '/proyectos'
-      preLoaderRoute: typeof ProyectosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-mi': {
@@ -121,7 +104,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProyectosRoute: ProyectosRoute,
   SobreMiRoute: SobreMiRoute,
   NotasSlugRoute: NotasSlugRoute,
   NotasIndexRoute: NotasIndexRoute,

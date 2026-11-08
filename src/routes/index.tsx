@@ -40,7 +40,7 @@ function Index() {
           </p>
 
           <div className="mt-12 flex flex-wrap items-center gap-8">
-            <Link to="/proyectos" className="btn-gold">
+            <Link to="/bitacora" className="btn-gold">
               Ver qué estoy haciendo →
             </Link>
             <Link to="/sobre-mi" className="link-gold">
@@ -66,7 +66,7 @@ function Index() {
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {notes.map((note) => (
+          {notes.slice(0, 3).map((note) => (
             <NoteCard key={note.slug} note={note} />
           ))}
         </div>
