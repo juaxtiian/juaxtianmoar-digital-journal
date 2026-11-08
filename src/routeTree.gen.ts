@@ -10,7 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ProyectosRouteImport } from './routes/proyectos'
+import { Route as BitacoraRouteImport } from './routes/bitacora'
+import { Route as CuraduriaRouteImport } from './routes/curaduria'
+import { Route as HerramientasRouteImport } from './routes/herramientas'
+import { Route as ReflexionesRouteImport } from './routes/reflexiones'
 import { Route as SobreMiRouteImport } from './routes/sobre-mi'
 import { Route as NotasIndexRouteImport } from './routes/notas.index'
 import { Route as NotasSlugRouteImport } from './routes/notas.$slug'
@@ -20,9 +23,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProyectosRoute = ProyectosRouteImport.update({
-  id: '/proyectos',
-  path: '/proyectos',
+const BitacoraRoute = BitacoraRouteImport.update({
+  id: '/bitacora',
+  path: '/bitacora',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CuraduriaRoute = CuraduriaRouteImport.update({
+  id: '/curaduria',
+  path: '/curaduria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HerramientasRoute = HerramientasRouteImport.update({
+  id: '/herramientas',
+  path: '/herramientas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReflexionesRoute = ReflexionesRouteImport.update({
+  id: '/reflexiones',
+  path: '/reflexiones',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreMiRoute = SobreMiRouteImport.update({
@@ -43,14 +61,20 @@ const NotasSlugRoute = NotasSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/proyectos': typeof ProyectosRoute
+  '/bitacora': typeof BitacoraRoute
+  '/curaduria': typeof CuraduriaRoute
+  '/herramientas': typeof HerramientasRoute
+  '/reflexiones': typeof ReflexionesRoute
   '/sobre-mi': typeof SobreMiRoute
   '/notas/$slug': typeof NotasSlugRoute
   '/notas/': typeof NotasIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/proyectos': typeof ProyectosRoute
+  '/bitacora': typeof BitacoraRoute
+  '/curaduria': typeof CuraduriaRoute
+  '/herramientas': typeof HerramientasRoute
+  '/reflexiones': typeof ReflexionesRoute
   '/sobre-mi': typeof SobreMiRoute
   '/notas/$slug': typeof NotasSlugRoute
   '/notas': typeof NotasIndexRoute
@@ -58,22 +82,53 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/proyectos': typeof ProyectosRoute
+  '/bitacora': typeof BitacoraRoute
+  '/curaduria': typeof CuraduriaRoute
+  '/herramientas': typeof HerramientasRoute
+  '/reflexiones': typeof ReflexionesRoute
   '/sobre-mi': typeof SobreMiRoute
   '/notas/$slug': typeof NotasSlugRoute
   '/notas/': typeof NotasIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/proyectos' | '/sobre-mi' | '/notas/$slug' | '/notas/'
+  fullPaths:
+    | '/'
+    | '/bitacora'
+    | '/curaduria'
+    | '/herramientas'
+    | '/reflexiones'
+    | '/sobre-mi'
+    | '/notas/$slug'
+    | '/notas/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/proyectos' | '/sobre-mi' | '/notas/$slug' | '/notas'
-  id: '__root__' | '/' | '/proyectos' | '/sobre-mi' | '/notas/$slug' | '/notas/'
+  to:
+    | '/'
+    | '/bitacora'
+    | '/curaduria'
+    | '/herramientas'
+    | '/reflexiones'
+    | '/sobre-mi'
+    | '/notas/$slug'
+    | '/notas'
+  id:
+    | '__root__'
+    | '/'
+    | '/bitacora'
+    | '/curaduria'
+    | '/herramientas'
+    | '/reflexiones'
+    | '/sobre-mi'
+    | '/notas/$slug'
+    | '/notas/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProyectosRoute: typeof ProyectosRoute
+  BitacoraRoute: typeof BitacoraRoute
+  CuraduriaRoute: typeof CuraduriaRoute
+  HerramientasRoute: typeof HerramientasRoute
+  ReflexionesRoute: typeof ReflexionesRoute
   SobreMiRoute: typeof SobreMiRoute
   NotasSlugRoute: typeof NotasSlugRoute
   NotasIndexRoute: typeof NotasIndexRoute
@@ -88,11 +143,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/proyectos': {
-      id: '/proyectos'
-      path: '/proyectos'
-      fullPath: '/proyectos'
-      preLoaderRoute: typeof ProyectosRouteImport
+    '/bitacora': {
+      id: '/bitacora'
+      path: '/bitacora'
+      fullPath: '/bitacora'
+      preLoaderRoute: typeof BitacoraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/curaduria': {
+      id: '/curaduria'
+      path: '/curaduria'
+      fullPath: '/curaduria'
+      preLoaderRoute: typeof CuraduriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/herramientas': {
+      id: '/herramientas'
+      path: '/herramientas'
+      fullPath: '/herramientas'
+      preLoaderRoute: typeof HerramientasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reflexiones': {
+      id: '/reflexiones'
+      path: '/reflexiones'
+      fullPath: '/reflexiones'
+      preLoaderRoute: typeof ReflexionesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-mi': {
@@ -121,7 +197,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProyectosRoute: ProyectosRoute,
+  BitacoraRoute: BitacoraRoute,
+  CuraduriaRoute: CuraduriaRoute,
+  HerramientasRoute: HerramientasRoute,
+  ReflexionesRoute: ReflexionesRoute,
   SobreMiRoute: SobreMiRoute,
   NotasSlugRoute: NotasSlugRoute,
   NotasIndexRoute: NotasIndexRoute,

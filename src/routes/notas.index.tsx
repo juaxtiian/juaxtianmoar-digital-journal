@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { notes } from "@/lib/content";
+import { categories, notes } from "@/lib/content";
 
 export const Route = createFileRoute("/notas/")({
   head: () => ({
@@ -36,7 +36,7 @@ function NotasPage() {
               className="group grid gap-3 py-10 md:grid-cols-[9rem_1fr] md:gap-10"
             >
               <div className="space-y-2">
-                <span className="eyebrow block text-primary">{note.tag}</span>
+                <span className="eyebrow block text-primary">{categories[note.category].label}</span>
                 <span className="block text-xs text-muted-foreground/70">{note.date}</span>
               </div>
               <div>

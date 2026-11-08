@@ -4,9 +4,10 @@ import { Menu, X } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Inicio", exact: true },
-  { to: "/proyectos", label: "Proyectos", exact: false },
-  { to: "/notas", label: "Notas", exact: false },
-  { to: "/sobre-mi", label: "Sobre mí", exact: false },
+  { to: "/herramientas", label: "Herramientas", exact: false },
+  { to: "/curaduria", label: "Curaduría", exact: false },
+  { to: "/reflexiones", label: "Reflexiones", exact: false },
+  { to: "/bitacora", label: "Bitácora", exact: false },
 ] as const;
 
 export function Logo() {
